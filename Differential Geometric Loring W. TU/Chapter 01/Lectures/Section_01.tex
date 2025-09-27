@@ -1,0 +1,65 @@
+% TeX root = main.tex
+
+% First argument to \section is the title that will go in the table of contents. Second argument is the title that will be printed on the page.
+\section[Lecture 1--{Riemannian manifold}]{Lecture 1 (1/9)}
+
+\subsection{Inner Products on a Vector Space}
+The $\textbf{Euclidean inner product}$ on $\mathbb{R}^n$ is defined by
+\begin{align}
+    \inner{u}{v}=\sum_{1}^{n}u^i v^i,
+\end{align}
+and the length of a vector is
+\begin{align}
+    \norm{u}=\sqrt{\inner{u}{u}},
+\end{align}
+the \textbf{angle} $\boldsymbol{\theta}$ between two vectors is
+\begin{align}
+    \cos \theta = \frac{\inner{u}{v}}{\norm{u}\norm{v}},
+\end{align}
+the \textbf{arc length} of a curve $c(t) \in \mathbb{R}^n, a \leq t \leq b$ is 
+\begin{align}
+    s = \int_{a}^{b} \norm{c'(t)} dt
+\end{align}
+
+\begin{definition}
+    An inner product in a real vector space $V$ is a postive-definite,
+    bilinear and symmetric map: $\inner{\cdot}{\cdot}: 
+    V \times V \rightarrow \mathbb{R}$ 
+    so that for $u,v,w \in V$ and $a,b\in \mathbb{R}$, satisfies
+    \begin{enumerate}[label= (\roman*)]
+        \item \textbf{Postive-definiteness} $\inner{v}{v}=0$ iff. $v=0$
+        \item \textbf{Symmetry} $\inner{u}{v}=\inner{v}{u}$
+        \item \textbf{Bilinear} $\inner{au+bv}{w}=a\inner{u}{w}+b\inner{v}{w}$
+    \end{enumerate}
+\label{def. inner prodcut}
+\end{definition}
+
+\begin{proposition}
+    If $W$ is a subspace of $V$, then the restriction
+    \begin{align}
+        \inner{}{}_W:=\inner{}{}|_{W\times W}: W \times W \rightarrow \mathbb{R},
+    \end{align}
+    of an inner product
+    $\inner{}{}$ on $V$ is also an innver prodcut.
+\end{proposition}
+\begin{proof}
+    The subspace construction preserves the properites 
+    in Definition~\ref{def. inner prodcut}.
+\end{proof}
+
+\begin{proposition}
+    The \textbf{nonnegative linear combinition} of inner products $\inner{}{}_i$
+     on $V$: $\inner{}{}:=\sum_{i=1}^{r}a_i\inner{}{}_i, a_i \geq 0$ is again an inner product on $V$.
+\end{proposition}
+\begin{proof}
+    The \textbf{nonnegativity} of $a_i$ preserves condition $(i)$ 
+    in Definition~\ref{def. inner prodcut}, the linearity makes condition $(ii),(iii)$ hold.
+\end{proof}
+
+\subsection{Representations of Inner Products by Symmetric Matrices}
+
+\subsection{Riemannian Metrics}
+
+\subsection{Existence of a Riemannian Metric}
+
+\subsection{Problems}

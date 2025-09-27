@@ -103,7 +103,48 @@ In terms of tensor product, an inner product on $V$ may be written as
     \inner{}{} = \sum_{ij}a_{ij} \alpha^i \otimes \alpha^j
 \end{align}
 \subsection{Riemannian Metrics}
-
+\begin{definition}
+    A \textbf{Riemannian metric} is an inner product \textbf{assignment} 
+    to each $p \in M$ of an inner product $\inner{}{}_p$ on the tangent space $T_p M$.
+    This assignment should be $C^\infty$ in the following sense: 
+    if $p \mapsto \inner{X_p}{Y_p}_p$ is a $C^\infty$ function for any $C^\infty$ 
+    vector fields $X,Y$. A \textbf{Riemannian manifold} is a pair $(M, \inner{}{})$, 
+    which consists of a $C^\infty$ manifold $M$ together with 
+    a Riemannian metric on $M$.
+\end{definition}
+\begin{example}
+    Since the tangent space at a point in Euclidean space $\sR^n$ 
+    is isomorphic to $\sR^n$, the Euclidean inner product induces a Riemannian metric 
+    on $\sR^n$ called the \textbf{Euclidean metric}.
+\end{example}
+\begin{example}
+    A surface $M$ in $\sR^3$ is a $2$-dimensional regular submanifold of $\sR^3$, 
+    the tangent space at $p$ is a subspace of $T_p\sR^3$, so the surface $M$ inherits 
+    a Riemannian metric from the Euclidean metric by restriction $\inner{}{}_M$.
+\end{example}
+\begin{definition}
+    A $C^\infty$ map $F: (N, \inner{}{}') \rightarrow (M, \inner{}{})$ of Riemannian manifolds is said to be \textbf{metric-preserving} if 
+    \begin{equation}
+        \inner{u}{v}'_p = \inner{F_*u}{F_*v}_{F(p)}
+        \label{eq. metric-preserving}
+    \end{equation}
+    for all point $p \in N$ and tangent vectors $u,v \in T_p N$. An \textbf{isometry}
+    is a metric-preserving diffeomorphism.
+\end{definition}
+For a Riemannian manifold $(M, \inner{}{})$, if there is a diffeomorphism that maps some
+manifolds $N$ to $M$, the induced metric $\inner{}{}'$ on $N$
+ can be defined by (\ref{eq. metric-preserving}).
+\begin{example}[Metric-preserving but not an isometry]
+    Let $N$ and $M$ be the unit circle in $\mathbb{C}$. 
+    Define $F: N \rightarrow M$ a \textbf{2-sheeted covering space map} 
+    (for any $w \in M$, $F^{-1}(w)$ contains $2$ points in $N$), by $F(z)=z^2$. Given $M$
+    any Riemannian metric $\inner{}{}$, and define the induced metric on $N$ is (\ref{eq. metric-preserving}),
+    The map $F$ is metric-preserving 
+    but not an isometry because $F$ is not a diffeomorphism (not inject).
+\end{example}
+\begin{example}[Topological equivalant Riemannian manifolds may not isometric]
+    
+\end{example}
 \subsection{Existence of a Riemannian Metric}
 
 \subsection{Problems}

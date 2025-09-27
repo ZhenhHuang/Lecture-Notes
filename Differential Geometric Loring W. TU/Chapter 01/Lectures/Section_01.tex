@@ -57,7 +57,51 @@ the \textbf{arc length} of a curve $c(t) \in \mathbb{R}^n, a \leq t \leq b$ is
 \end{proof}
 
 \subsection{Representations of Inner Products by Symmetric Matrices}
+Let $e_1,\dots, e_n$ be the basis of vector space $V$, 
+each vector $x \in V$ can be represented as a column vector
+\begin{equation}
+    x=\sum_{i=1}^{n}x^i e_i \leftrightarrow \vx=\left[\begin{array}{c}
+        x^1 \\
+        \vdots \\
+        x^n
+    \end{array}\right].
+\end{equation}
+Let $\mA$ be an $n\times n$ matrix whose entries $a_{ij}=\inner{e_i}{e_j}$, 
+the matrix form of an inner product on $V$ is
+\begin{equation}
+    \inner{x}{y}=\sum_{ij}x^i y^j \inner{e_i}{e_j} = \vx^\top \mA \vy.
+\end{equation}
+We find that, once a basis of $V$ is chosen, the inner product on $V$
+determines a postive-definite symmetric matrix. Conversely, an $n \times n$
+postive-definite symmetric matrix with a basis of $V$ determines an inner product 
+on $V$
 
+It follows that there is an one-to-one correspondence
+\begin{align}
+    \left\{
+    \begin{array}{c}
+        \text{inner product on a $n$-dimensional} \\
+        \text{vector space}
+    \end{array}
+\right\}
+\leftrightarrow
+\left\{
+    \begin{array}{c}
+        \text{An $n \times n$ postive-definite} \\
+        \text{symmetric matrix}
+    \end{array}
+\right\}.
+\end{align}
+Let a basis of dual space $V^\vee:=\Hom{V, \sR}$ be $\alpha^1,\dots,\alpha^n$ w.r.t.
+the basis $e_1,\dots,e_n$ of $V$, an inner product $\inner{}{}$ of $x,y\in V$ is
+\begin{align}
+    \inner{x}{y}&=\sum_{i,j} a_{ij} x^i y^j=\sum_{i,j} a_{ij} \alpha^i(x) \alpha^j(y) \nonumber \\
+    &=\sum_{i,j} a_{ij} \alpha^i \otimes \alpha^j (x,y) \nonumber
+\end{align}
+In terms of tensor product, an inner product on $V$ may be written as
+\begin{align}
+    \inner{}{} = \sum_{ij}a_{ij} \alpha^i \otimes \alpha^j
+\end{align}
 \subsection{Riemannian Metrics}
 
 \subsection{Existence of a Riemannian Metric}

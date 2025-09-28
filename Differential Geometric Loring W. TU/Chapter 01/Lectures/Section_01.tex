@@ -1,7 +1,7 @@
 % TeX root = main.tex
 
 % First argument to \section is the title that will go in the table of contents. Second argument is the title that will be printed on the page.
-\section[Lecture 1--{Riemannian manifold}]{Lecture 1 (1/9)}
+\section[Lecture 1--{Riemannian manifold}]{1. Riemannian manifold}
 
 \subsection{Inner Products on a Vector Space}
 The $\textbf{Euclidean inner product}$ on $\mathbb{R}^n$ is defined by
@@ -49,7 +49,9 @@ the \textbf{arc length} of a curve $c(t) \in \mathbb{R}^n, a \leq t \leq b$ is
 
 \begin{proposition}
     The \textbf{nonnegative linear combinition} of inner products $\inner{}{}_i$
-     on $V$: $\inner{}{}:=\sum_{i=1}^{r}a_i\inner{}{}_i, a_i \geq 0$ is again an inner product on $V$.
+     on $V$: $\inner{}{}:=\sum_{i=1}^{r}a_i\inner{}{}_i, a_i \geq 0$ is again an 
+     inner product on $V$.
+\label{prop. nonneg combinition of metrics}
 \end{proposition}
 \begin{proof}
     The \textbf{nonnegativity} of $a_i$ preserves condition $(i)$ 
@@ -104,6 +106,7 @@ In terms of tensor product, an inner product on $V$ may be written as
 \end{align}
 \subsection{Riemannian Metrics}
 \begin{definition}
+    \label{def. Riemannian metric}
     A \textbf{Riemannian metric} is an inner product \textbf{assignment} 
     to each $p \in M$ of an inner product $\inner{}{}_p$ on the tangent space $T_p M$.
     This assignment should be $C^\infty$ in the following sense: 
@@ -123,12 +126,14 @@ In terms of tensor product, an inner product on $V$ may be written as
     a Riemannian metric from the Euclidean metric by restriction $\inner{}{}_M$.
 \end{example}
 \begin{definition}
-    A $C^\infty$ map $F: (N, \inner{}{}') \rightarrow (M, \inner{}{})$ of Riemannian manifolds is said to be \textbf{metric-preserving} if 
+    A $C^\infty$ map $F: (N, \inner{}{}') \rightarrow (M, \inner{}{})$ of 
+    Riemannian manifolds is said to be \textbf{metric-preserving} if 
     \begin{equation}
         \inner{u}{v}'_p = \inner{F_*u}{F_*v}_{F(p)}
         \label{eq. metric-preserving}
     \end{equation}
-    for all point $p \in N$ and tangent vectors $u,v \in T_p N$. An \textbf{isometry}
+    for all point $p \in N$ and tangent vectors $u,v \in T_p N$. 
+    An \textbf{isometry}
     is a metric-preserving diffeomorphism.
 \end{definition}
 For a Riemannian manifold $(M, \inner{}{})$, if there is a diffeomorphism that maps some
@@ -137,14 +142,69 @@ manifolds $N$ to $M$, the induced metric $\inner{}{}'$ on $N$
 \begin{example}[Metric-preserving but not an isometry]
     Let $N$ and $M$ be the unit circle in $\mathbb{C}$. 
     Define $F: N \rightarrow M$ a \textbf{2-sheeted covering space map} 
-    (for any $w \in M$, $F^{-1}(w)$ contains $2$ points in $N$), by $F(z)=z^2$. Given $M$
-    any Riemannian metric $\inner{}{}$, and define the induced metric on $N$ is (\ref{eq. metric-preserving}),
+    (for any $w \in M$, $F^{-1}(w)$ contains $2$ points in $N$), 
+    by $F(z)=z^2$. Given $M$
+    any Riemannian metric $\inner{}{}$, and define the induced metric 
+    on $N$ is (\ref{eq. metric-preserving}),
     The map $F$ is metric-preserving 
     but not an isometry because $F$ is not a diffeomorphism (not inject).
 \end{example}
 \begin{example}[Topological equivalant Riemannian manifolds may not isometric]
     
 \end{example}
-\subsection{Existence of a Riemannian Metric}
 
-\subsection{Problems}
+\begin{figure}[htp]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=0.3\textwidth]{../Lectures/Figures/torus_1.png}
+    }
+    \subfloat[]{
+        \includegraphics[width=0.3\textwidth]{../Lectures/Figures/torus_2.png}
+    }
+    \caption{Two Riemannian metrics on torus.}
+\end{figure}
+\subsection{Existence of a Riemannian Metric}
+The local diffeomorphism $\phi$ defines a Riemannian metric on 
+a coordinate chart $(U, x^1,\dots, x^n)$ of $M$ that $x^i=r^i \circ \phi$, 
+as
+\begin{equation}
+    \inner{X}{Y}=\sum_{ij}a^i b^i\inner{\partial_i}{\partial_j}
+    =\sum_{ij}a^i b^i,
+    \label{eq. induced inner}
+\end{equation}
+since $\phi_* \partial_j=\frac{\partial}{\partial r^j}$, the induced metric 
+is the same as the Euclidean ones.
+
+To obtain a Riemannian metric on $M$, we need to piece together the Riemannian 
+metrics on all charts of an atlas of $M$. Here, we use the 
+\textbf{partition of the unity} as the standard tools.
+\begin{theorem}[Existence of a Riemannian metric]
+    There exists a Riemannian metric on every manifold.
+\end{theorem}
+\begin{proof}
+    Let $\{(U_\alpha, \phi_\alpha)\}_{\alpha \in A}$ an atlas of $M$. 
+    We have a partition of unity $\{\rho_\alpha\}$ that subcoordinates to 
+    open sets $\{U_\alpha\}$. 
+    Let $\inner{}{}_\alpha$ the Riemannian metric on $U_\alpha$ as in (\ref{eq. induced inner}), 
+    from Proposition~\ref{prop. nonneg combinition of metrics}, we define a metric
+    on $T_pM$ at $p$ is 
+    \begin{align}
+        \inner{}{} = \sum_{\alpha\in A} \rho_\alpha \inner{}{}_\alpha.
+        \label{eq. piece together metric}
+    \end{align}
+    Since $U_p$ intersects finite number of $U_\alpha$, (\ref{eq. piece together metric}) is
+    a finite sum.
+    Since $\rho_\alpha$ and $\inner{}{}_\alpha$ are both smooth, for any $C^\infty$
+    vector fields $X, Y$,
+    $\sum_{\alpha\in A} \rho_\alpha \inner{X}{Y}_\alpha$ 
+    is a finite sum of smooth functions at arbitary $p$
+     (By Definition~\ref{def. Riemannian metric}). 
+     So $\sum_{\alpha\in A} \rho_\alpha \inner{}{}_\alpha$ is a Riemannian metric on $M$.
+\end{proof}
+
+\problemsection{Problems}
+\begin{problem}
+    Suppose $(M, \inner{}{})$ is a Riemannian manifold. Show that two $C^\infty$ vector fields
+    $X,Y \in \mathfrak{X}(M)$ are equal if and only if $\inner{X}{Z}=\inner{Y}{Z}$ for all
+    $C^\infty$ vector fields $Z\in\mathfrak{X}(M)$.
+\end{problem}

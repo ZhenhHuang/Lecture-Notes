@@ -146,6 +146,11 @@
 % notation letters
 \input{../math_commands.tex}
 
+\newcommand{\problemsection}[1]{%
+  \section*{#1}%
+  \addcontentsline{toc}{subsection}{#1}%
+}
+
 % Additional commands for math mode
 \DeclareMathOperator*{\argmax}{argmax}		% Argmax, e.g. $\argmax_{x\in[0,1]} f(x)$
 \DeclareMathOperator*{\argmin}{argmin}		% Argmin, e.g. $\argmin_{x\in[0,1]} f(x)$
@@ -168,6 +173,17 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
+
+% 导言区
+\newcounter{problem}[section]
+\renewcommand{\theproblem}{\thesection.\arabic{problem}}
+
+\newenvironment{problem}[1][]{%
+  \refstepcounter{problem}%
+  \par\noindent\textbf{\theproblem\ifstrempty{#1}{}{~(#1)}}\quad%
+}{%
+  \par\addvspace{\topsep}%
+}
 
 % Un-numbered theorem, lemma, etc. settings
 % Example usage: \begin{lemma*}[Name of lemma] Lemma statement \end{lemma*}
@@ -215,7 +231,8 @@
 
 % --- Main content: import lectures as subfiles ---
 
-\input{Lectures/Section_01.tex}
+\input{Lectures/section_01.tex}
+\input{Lectures/section_02.tex}
 
 % --- Bibliography ---
 

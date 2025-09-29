@@ -10,7 +10,7 @@
   graphicx, wrapfig, subfig, float,                            % Figures and graphics formatting
   listings, color, inconsolata, pythonhighlight,               % Code formatting
   fancyhdr, sectsty, hyperref, enumerate, enumitem, framed }   % Headers/footers, section fonts, links, lists
-
+\counterwithin{figure}{section}
 % lipsum is just for generating placeholder text and can be removed
 \usepackage{hyperref, lipsum} 
 
@@ -208,7 +208,7 @@
 \fancyhead[R]{\small\textit{\nouppercase{\rightmark}}}
 
 % Left header text: Short course title, hyperlinked to table of contents
-\fancyhead[L]{\hyperref[sec:contents]{\small Short title of document}}
+\fancyhead[L]{\hyperref[sec:contents]{\small Curvature and Vector Fields}}
 
 % --- Document starts here ---
 
@@ -233,6 +233,7 @@
 
 \input{Lectures/section_01.tex}
 \input{Lectures/section_02.tex}
+\input{Lectures/section_03.tex}
 
 % --- Bibliography ---
 

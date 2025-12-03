@@ -1,0 +1,194 @@
+% TeX root = main.tex
+
+% First argument to \section is the title that will go in the table of contents. Second argument is the title that will be printed on the page.
+\section[Lecture 4--{Directional Derivatives in Euclidean Space}]
+{4. Directional Derivatives in Euclidean Space}
+This section introduces the differentiation of vector field in Euclidean space--the directional
+derivatives. Then we distinguish the definition of \textbf{the directional derivatives on a 
+manifold or along a submanifold}.
+\subsection{Directional Derivatives in Euclidean Space}
+Suppose a $C^\infty$ function $f$ defined on a neighborhood of $p$,
+$X_p=\sum_{i=1}^{n}a^i\frac{\partial}{\partial x^i}\Big|_p$ is a tangent vector at a point
+$p=(p^1,\dots,p^n) \in \mathbb{R}^n$.The \textbf{directional derivatives} of $f$ at $p$ 
+in the direction $X_p$ is
+\begin{align}
+    D_{X_p}f&=\lim_{t\rightarrow 0}\frac{f(p+ta)-f(p)}{t}=\frac{d}{dt}\Big|_{t=0}f(p+ta) 
+    \label{eq. directional derivatives} \\
+    &=\sum_{i=1}^{n}\frac{\partial f}{\partial x^i}\Big|_p \frac{dx^i}{dt}\Big|_{t=0}
+    =\sum_{i=1}^{n}\frac{\partial f}{\partial x^i}\Big|_p\cdot a^i \nonumber \\
+    &=(\sum_{i=1}^{n}a^i\frac{\partial}{\partial x^i}\Big|_p)f=X_p f. \nonumber
+\end{align}
+Then, given $Y=\sum_{i=1}^{n}b^i\partial_i$ a vector field on $\mathbb{R}^n$, the directional
+derivatives of $Y$ at $p$ in the direction $X_p$ is
+\begin{align}
+    D_{X_p}Y=\sum (X_p b^i)\frac{\partial}{\partial x^i}\Big|_p
+    \label{eq. vector directional derivatives}
+\end{align}
+We can find that (\ref{eq. directional derivatives}) is along a line through $p$, we can extend it
+to any curve $c(t)$ with $c(0)=p, c'(0)=X_p$:
+\begin{align}
+    D_{X_p}f = X_p f = c'(0)f= c_* f =\frac{d}{dt}\Big|_{t=0} f(c(t)). \nonumber
+\end{align}
+Thus, \textbf{once $f$ is defined in such a curve $c(t)$ with $c(0)=p, c'(0)=X_p$}, the directional
+derivatives of $f$ at p in the direction $X_p$ makes sense.
+
+If $X$ is a $C^\infty$ vector field, then for all $p \in \mathbb{R}^n$, we can define the vector
+fielf $D_X Y$ on $\mathbb{R}^n$.
+\begin{align}
+    (D_X Y)_p = D_{X_p}Y. \nonumber
+\end{align}
+(\ref{eq. vector directional derivatives}) shows that if $X,Y$ are both $C^\infty$, so is $D_X Y$.
+Denote $\mathfrak{X}(\mathbb{R}^n)$ the set of vector fields on $\mathbb{R}^n$, the directional
+derivatives gives a map: 
+\begin{align}
+    D:\mathfrak{X}(\mathbb{R}^n)\times \mathfrak{X}(\mathbb{R}^n) \rightarrow
+\mathfrak{X}(\mathbb{R}^n). \nonumber
+\end{align}
+Let $\mathcal{F}=C^\infty(\mathbb{R}^n)$ the ring of smooth functions on $\sR^n$, $\mathfrak{X}(\sR^n)$
+is both a vector space over $\mathbb{R}$ and a module over $\mathcal{F}$.
+\begin{proposition}
+    For $X, Y \in \mathfrak{X}(\sR^n)$, the directional derivatives $D$ satisfies
+    \begin{enumerate}[label= (\roman*)]
+        \item $\mathcal{F}$-linear in $X$ and $\sR$-linear in Y.
+        \item (Leibniz rule) if $f$ is $C^\infty$ on $\sR^n$, then
+        \begin{align}
+            D_X(fY)=(Xf) Y + fD_X Y. \nonumber
+        \end{align}
+    \end{enumerate}
+\label{prop. directional derivative properites1}
+\end{proposition}
+\begin{proof}
+    Hint: leverage (\ref{eq. vector directional derivatives}).
+\end{proof}
+\subsection{Other Properties of the Directional Derivative}
+From (\ref{eq. vector directional derivatives}), we find that $D$ is not symmetric.
+In fact, we have the \textbf{torsion} of $D$
+\begin{align}
+    T(X, Y) = D_X Y - D_Y X - [X, Y], \nonumber
+\end{align}
+it turns out a foundamental conspect in differential geometry.
+For each smooth vector field $X \in \mathfrak{X}(\sR^n)$, $D_X: \mathfrak{X}(\sR^n) \rightarrow
+\mathfrak{X}(\sR^n)$ is an $\sR$-linear endomorphism. This gives rise to a map:
+\begin{align}
+    \begin{array}{c}
+    \mathfrak{X}(\sR^n) \rightarrow \text{End}_{\sR}(\mathfrak{X}(\sR^n)) \\
+    X \mapsto D_X.
+    \end{array}
+    \label{eq. endo map}
+\end{align}
+With the Lie bracket of vector field, the endomorphism ring $\text{End}_{\sR}(\mathfrak{X}(\sR^n))$
+becomes a Lie algebra. It is natural to ask if (\ref{eq. endo map}) is a Lie homomorphism, i.e.,
+\begin{align}
+    [D_X, D_Y] = D_{[X, Y]}. \nonumber
+\end{align}
+\textbf{A measure of the deviation of the linear map (\ref{eq. endo map}) from being a Lie algebra
+homomorphism} is given by the function
+\begin{align}
+    R(X, Y) = D_X D_Y - D_Y D_X - D_{[X,Y]}, \nonumber
+\end{align}
+is called the \textbf{curvature} of $D$.
+\begin{proposition}
+    Let $D$ be the directional derivative in $\sR^n$ and $X,Y,Z$ $C^\infty$ vector field 
+    on $\sR^n$, $[X, Y]$ is the Lie bracket. $D$ satisfies the following properites
+    \begin{enumerate}[label= (\roman*)]
+        \item zero torsion: $T(X, Y) = D_X Y - D_Y X - [X, Y]=0$.
+        \item zero curvature: $R(X, Y) = D_X D_Y - D_Y D_X - D_{[X,Y]}$.
+        \item metric compatibility: $X\inner{Y}{Z}=\inner{D_X Y}{Z} + \inner{Y}{D_X Z}$.
+    \end{enumerate}
+\label{prop. directional derivative properites2}
+\end{proposition}
+The \textit{Lie derivative} $\mathcal{L}_X Y$ is another way of differentiate vector fields. 
+Although in general case $\mathcal{L}_X Y$ is different from $D_X Y$, but in $\sR^n$, they are equal.
+
+\subsection{Vector Fields Along a Curve}
+Suppose $c:[a, b]\rightarrow M$ is a parameterized curve in $M$.
+\begin{definition}
+    A \textbf{vector field} $V$ \textbf{along} a curve $c:[a,b]\rightarrow M$ assigns each point
+    $c(t)$ a tangent vector $V(t)\in T_{c(t)}M$. We say $V$ is $C^\infty$ if $V(t)f$ is 
+    a $C^\infty$ function of t for every $f \in C^\infty(M)$.
+\end{definition}
+\begin{example}
+    The velocity vector field $c'(t)$ is a vector field along c defined by:
+    \begin{align}
+        c'(t) = c_*\left(\frac{d}{dt}\bigg|_{t=0}\right). \nonumber
+    \end{align}
+\end{example}
+\begin{example}
+    A vector field $\tilde{V}$ on $M$ induces a vector field $V$ along $c$ such that
+    $V(t)=\tilde{V}_{c(t)}$.
+\end{example}
+Suppose $c:[a,b]\rightarrow \sR^n$ is a parameterized curve in $\sR^n$, $V(t)$ is a $C^\infty$ 
+vector field on $\sR^n$ along $c$. Then, $V$ can be written as
+\begin{align}
+\label{eq. vector field along a curve}
+    V(t)=\sum_{i=1}^{n}v^i(t)\partial_i \big|_{c(t)}.
+\end{align}
+It is natural to define the derivative with respect to $t$, like the acceleration.
+\begin{align}
+    \frac{dV}{dt}(t)=\sum_{i=1}^{n}\frac{dv^i}{dt}(t)\partial_i \big|_{c(t)}. \nonumber
+\end{align}
+\begin{remark}
+    For a arbitrary manifold $M$, it is meaningless to define the derivative $dV/dt$ since the
+    local coordinate systems are commonly different, unlike the standard frame in Euclidean space.
+    We will discuss the \textit{covirant derivative} in later section.
+\end{remark}
+\begin{proposition}
+    Let $c:[a,b]\rightarrow \sR^n$ is a curve in $\sR^n$, $V(t), W(t)$ are $C^\infty$ vector fields
+    along $c$. Then
+    \begin{align}
+        \frac{d}{dt}\inner{V(t)}{W(t)}=\inner{\frac{dV}{dt}}{W} + \inner{V}{\frac{dW}{dt}}. \nonumber
+    \end{align}
+\end{proposition}
+\subsection{Vector Fields Along a Submanifold}
+\begin{definition}
+    Let $M$ be a regular submanifold of $\tilde{M}$. A vector field \textbf{on} $M$ assigns each
+    $p\in M$ a tangent vector $X_p\in T_p M$. A vector field \textbf{along} $M$ assigns each
+    $p\in M$ a tangent vector $X_p\in T_p \tilde{M}$. A vector field $X$ along $M$ is $C^\infty$ If
+    $Xf$ is $C^\infty$ on $M$ for any $f\in C^\infty(\tilde{M})$.
+\end{definition}
+The set of all $C^\infty$ vector field along a submanifold $M$ in manifold $\tilde{M}$ will be denoted as $\Gamma(T\tilde{M}\big|_M)$, is also a module over ring $C^\infty(M)$.
+\subsection{Directional Derivatives on a Submanifold of $\mathbb{R}^n$}
+Suppose $M$ is a regular submanifold of $\mathbb{R}^n$. At any point $p \in M$, there is a tangent vector $X_p \in T_p M$, and $Y=\sum_{i=1}^{n}b^i \partial_i$ is a vector field along $M$ in $\mathbb{R}^n$. Then the directional derivative $D_{X_p}Y$ is defined, where
+\[
+D: \mathfrak{X}(M) \times \Gamma(T\mathbb{R}^n \big|_M) \rightarrow \Gamma(T\mathbb{R}^n \big|_M).
+\]
+Because of the asymmetry of two arguments of $D$, the definition of torsion does not make sense. But the properites except the torsion of $D$ still satisfies the one described in Theorem~\ref{prop. directional derivative properites1} and \ref{prop. directional derivative properites2}.
+
+\begin{proposition}
+    Differentiating with respect to $t$ of a vector field along a curve is the directional derivative in the tangent direction:
+    \[
+    \frac{dV}{dt}=D_{c'(t)} \tilde{V}.
+    \]
+\end{proposition}
+\begin{proof}
+    \textbf{Hint}. By the definition of $c'(t)$ and (\ref{eq. vector field along a curve}).
+\end{proof}
+
+\problemsection{Problems}
+\begin{problem}
+    Let $f, g$ be $C^\infty$ functions and $X, Y$ be $C^\infty$ vector fields on a manifold $M$. Show that
+\[
+[fX, gY] = fg[X,Y] + f(Xg)Y - g(Yf)X.
+\]
+(Hint: Two smooth vector fields $V$ and $W$ on a manifold $M$ are equal if and only if for every $h \in C^\infty(M)$, $Vh = Wh$.)
+\end{problem}
+
+\begin{problem}
+    Let $M$ be a regular submanifold of $\mathbb{R}^n$ and
+\[
+D \colon \mathfrak{X}(M) \times \Gamma(T\mathbb{R}^n|_M) \to \Gamma(T\mathbb{R}^n|_M)
+\]
+the directional derivative on $M$. Since $\mathfrak{X}(M) \subset \Gamma(T\mathbb{R}^n|_M)$, we can restrict $D$ to $\mathfrak{X}(M) \times \mathfrak{X}(M)$ to obtain
+\[
+D \colon \mathfrak{X}(M) \times \mathfrak{X}(M) \to \Gamma(T\mathbb{R}^n|_M).
+\]
+
+\begin{enumerate}
+    \item[(a)] Let $T$ be the unit tangent vector field to the circle $S^1$. Prove that $D_T T$ is not tangent to $S^1$. This example shows that $D|_{\mathfrak{X}(M) \times \mathfrak{X}(M)}$ does not necessarily map into $\mathfrak{X}(M)$.
+    
+    \item[(b)] If $X, Y \in \mathfrak{X}(M)$, prove that
+    \[
+    D_X Y - D_Y X = [X, Y].
+    \]
+\end{enumerate}
+\end{problem}

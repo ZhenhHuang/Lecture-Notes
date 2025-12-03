@@ -11,6 +11,7 @@
   listings, color, inconsolata, pythonhighlight,               % Code formatting
   fancyhdr, sectsty, hyperref, enumerate, enumitem, framed }   % Headers/footers, section fonts, links, lists
 \counterwithin{figure}{section}
+\numberwithin{equation}{section}
 % lipsum is just for generating placeholder text and can be removed
 \usepackage{hyperref, lipsum} 
 
@@ -174,7 +175,7 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
 
-% 导言区
+
 \newcounter{problem}[section]
 \renewcommand{\theproblem}{\thesection.\arabic{problem}}
 
@@ -234,6 +235,8 @@
 \input{Lectures/section_01.tex}
 \input{Lectures/section_02.tex}
 \input{Lectures/section_03.tex}
+\input{Lectures/section_04.tex}
+\input{Lectures/section_05.tex}
 
 % --- Bibliography ---
 

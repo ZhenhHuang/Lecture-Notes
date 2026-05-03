@@ -1,0 +1,68 @@
+% TeX root = main.tex
+
+\section[Chapter 1. Convex sets]{1. Convex sets}
+
+\subsection{Affine and convex sets}
+We first introduce the aspect of line and line segment that will be used for defining affine and convex sets.
+\subsubsection{Line and line segment}
+Given any two distinct point $x_1, x_2 \in \R^n$, the \textbf{line} is the set 
+\[
+\left\{ \theta x_1 + (1-\theta) x_2 | \theta \in \R \right\}.
+\]
+If we restrict $\theta$ to $[0, 1]$, then the set above turns out to \textbf{line segment}.
+
+\subsubsection{Affine sets}
+A set $C \subseteq \R^n$ is \textbf{affine} if any line determined by two distinct points $x_1, x_2 \in C$ still lies in $C$, i.e., $\theta x_1 + (1-\theta) x_2 \in C$ for any $\theta \in \R$.
+
+Using induction on the definition of affine set, we can generalize it to any number of points. Suppose $x_1,\dots,x_k, x_{k+1} \in C$ and $p=\sum_{i=1}^{k}\theta_i x_i \in C$ with $\sum_{i=1}^{k}\theta_i=1$, we have $q=\theta' p + (1 - \theta') x_{k+1} \in C$ by definition of affine set, where $\theta' \in \R$. Then we focus on the coefficients of $q$:
+\[
+q=\theta'\sum_{i=1}^{k}\theta_i + (1 - \theta')=1.
+\]
+This process gives arise to the form of \textbf{affine combination} of points $x_1,\dots, x_k$: $\theta_1 x_1 + \dots + \theta_k x_k \in C$ with $\sum_{i=1}^{k}\theta_i=1$, which extend the definition on multiple points.
+
+However, the affine set does not have the subspace construction. We can easily verify that the set $V=C-x_0=\left\{x - x_0|x\in C\right\}$ is a subspace, where $x_0\in C$, by closeness under sum and scalar multiplication. 
+
+The subspace $V$ associated with the affine set $C$ does not depend on the choice of $x_0$. The dimension of $C$ is defined as the dimension of subspace $V$.
+\begin{example}
+    Consider the solution set of a system of linear equations $C={Ax=b}$, where $A\in \R^{m\times n}$ and $b\in \R^m$. $C$ is an affine set. The subspace associated with $C$ is $\text{ker } A$.
+\end{example}
+If $C$ is only a subset in $\R^n$, then the \textbf{affine hull} of $C$ consists of all affine combination of points in $C$:
+\[
+\text{aff } C=\left\{\theta_1 x_1 + \dots + \theta_k x_k| x_1,\dots,x_k \in C, \theta_1+\dots+\theta_k = 1\right\},
+\]
+which is the \textbf{smallest affine set} contains $C$.
+
+\subsubsection{Affine dimension and relative interior}
+The \textbf{affine dimension} of a set $C$ is the dimension of its affine hull. We define the \textbf{relative interior} of $C$ by
+\[
+\text{relint } C = \left\{ x \in C | B(x, r) \cap \text{aff }C \subseteq C, \text{for some } r > 0 \right\}.
+\]
+The \textbf{relative boundary} if $\text{cl } C \setminus \text{relint } C$, where $\text{cl } C$ is the closure of $C$.
+
+The following example shows the difference between interior and boundary defined in point-set topology.
+\begin{example}
+    Consider a square $C=\left\{ x|x_1\in[-1, 1], x_2\in[-1, 1], x_3=0 \right\} \subseteq \R^3$. The interior of $C$ is empty, but the relative interior is the $(x_1, x_2)$-plane. The boundary is itself, the relative boundary is the wire-frame outline of $C$.
+\end{example}
+
+\subsubsection{Convex sets}
+A set $C$ is \textbf{convex} if all the line segments through any two distinct points $x_1, x_2 \in C$ lie in $C$. Similar to the definition in affine set, given $x_1,\dots, x_k \in C$, we can define the \textbf{convex combination} as $\sum_{i=1}^{k}\theta_i x_i$ with $\sum_{i=1}^{k}\theta_i=1, \theta_i \geq 0$. The convexity means the set $C$ contains all the convex combination of points in $C$.
+
+The \textbf{convex hull} is the set
+\[
+\text{conv } C = \left\{ \sum_{i=1}^{k}\theta_i x_i |x_i \in C, \sum_{i=1}^{k}\theta_i=1, \theta_i \geq 0\right\},
+\]
+which is the \textbf{smallest convex} set contains $C$.
+
+The idea of convex combination can be generalize to infinite (or countable) series if it converges, e.g., the expectation of probability distributions.
+
+\subsubsection{Cones}
+A set $C$ is a \textbf{cone}, or \textbf{nonnegative homogeneous}, if $\theta x \in C$ for every $x\in C, \theta \geq 0$. A set $C$ is a \textbf{convex cone} if it is convex and a cone, which can be interpreted as a slice plane between two rays from the origin to two points in $C$.
+
+The \textbf{conic combination} (or a \textbf{nonnegative linear combination}) is the form of $\sum_{i=1}^{k}\theta_i x_i, \theta \geq 0$. A set $C$ is a convex cone if and only if it contains all conic combinations of its elements.
+
+The \textbf{conic hull} of a set $C$ is the set of all conic combinations of points in $C$:
+\[
+\left\{ \sum_{i=1}^{k}\theta_i x_i |x_i \in C, \theta_i \geq 0, i=1,\dots,k \right\}
+\]
+
+\subsection{Some important examples}
